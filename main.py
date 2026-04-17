@@ -38,7 +38,13 @@ def run_simulation():
     # Calculate Asian with the Geometric Control Variate
     asian_results = pricer.price_asian_control_variate(S_paths)
     
+    print("Generating visualizations...")
+    from visualizer import PathVisualizer
+    PathVisualizer.plot_simulation(S_paths, option.K, num_paths_to_plot=200)
+    
     execution_time = time.time() - start_time
+    
+    
     
     # 5. Display the Report
     print("==================================================")
